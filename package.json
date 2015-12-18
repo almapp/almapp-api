@@ -29,7 +29,8 @@
     "http-status-codes": "^1.0.5",
     "mongoose": "^4.3.1",
     "morgan": "^1.6.1",
-    "nconf": "^0.8.2"
+    "nconf": "^0.8.2",
+    "throw.js": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
