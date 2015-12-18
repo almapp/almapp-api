@@ -1,0 +1,42 @@
+{
+  "name": "almapp-api",
+  "version": "0.1.0",
+  "description": "Almapp REST API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "develop": "node_modules/nodemon/bin/nodemon.js index.js",
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almapp/almapp-api.git"
+  },
+  "keywords": [
+    "almapp",
+    "api",
+    "rest"
+  ],
+  "author": "Patricio López <patricio@lopezjuri.com> (https://lopezjuri.com)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/almapp/almapp-api/issues"
+  },
+  "homepage": "https://github.com/almapp/almapp-api#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "http-status-codes": "^1.0.5",
+    "mongoose": "^4.3.1",
+    "mongoose-friendly-id": "^1.0.4",
+    "mongoose-seeder": "^1.2.1",
+    "morgan": "^1.6.1",
+    "nconf": "^0.8.2"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "nodemon": "^1.8.1",
+    "supertest": "^1.1.0"
+  }
+}
