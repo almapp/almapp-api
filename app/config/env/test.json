@@ -1,5 +1,8 @@
 {
   "mongo": {
     "uri": "mongodb://mongo:27017/almapptest"
+  },
+  "elasticsearch": {
+    "uri": "elasticsearch:9200"
   }
 }

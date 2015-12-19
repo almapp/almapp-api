@@ -18,4 +18,7 @@ module.exports = nconf.env().argv().file(file).defaults({
   'mongo': {
     'uri': 'mongodb://localhost:27017/almapp',
   },
+  'elasticsearch': {
+    'uri': 'localhost:9200',
+  }
 });
