@@ -12,21 +12,29 @@ function PositionSchema() {
       index: true,
       required: true,
       unique: true,
-      uppercase: true,
+      lowercase: true,
+      es_indexed: true,
     },
     name: {
       type: String,
+      es_indexed: true,
     },
     information: {
       type: String,
     },
     position: {
-      latitude: {
+      geo_point: {
+        type: String,
+        es_type: 'geo_point',
+        es_lat_lon: true,
+        es_indexed: true,
+      },
+      lat: {
         type: Number,
         min: -85,
         max: 85,
       },
-      longitude: {
+      lon: {
         type: Number,
         min: -180,
         max: 180,

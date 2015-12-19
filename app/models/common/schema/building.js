@@ -9,9 +9,11 @@ function BuildingSchema() {
   this.add({
     abbreviation: {
       type: String,
+      es_indexed: true,
     },
-    short_name: {
+    shortName: {
       type: String,
+      es_indexed: true,
     },
     address: {
       type: String,

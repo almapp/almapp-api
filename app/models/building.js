@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 const BuildingSchema = require('./common/schema/building');
 
-const Building = new BuildingSchema({
+const BuildingSch = new BuildingSchema({
   places: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Place',
   }],
 }, {
-  timestamps: true
+  timestamps: true,
 });
 
-module.exports = mongoose.model('Building', Building);
+module.exports = mongoose.model('Building', BuildingSch);

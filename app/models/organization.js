@@ -1,15 +1,27 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoosastic = require('mongoosastic');
+const Promise = require("bluebird");
 
 const BuildingSchema = require('./common/schema/building');
+const elasticsearch = require('./../config/elasticsearch');
 
-const Organization = new BuildingSchema({
+const OrganizationSchema = new BuildingSchema({
   campuses: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Campus',
   }],
 }, {
-  timestamps: true
+  timestamps: true,
 });
 
-module.exports = mongoose.model('Organization', Organization);
+OrganizationSchema.plugin(mongoosastic, {
+  esClient: elasticsearch,
+  hydrate: true,
+})
+
+const Organization = mongoose.model('Organization', OrganizationSchema);
+Organization.search = Promise.promisify(Organization.search, {
+  context: Organization,
+});
+
+module.exports = Organization;
