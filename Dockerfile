@@ -1,2 +1,2 @@
-FROM node:4.2.3-onbuild
+FROM node:5.3.0-onbuild
 EXPOSE 3000
