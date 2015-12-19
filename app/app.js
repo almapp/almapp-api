@@ -5,9 +5,7 @@ const bodyParser = require('body-parser');
 
 // Local imports
 const config = require('./config');
-const database = require('./database');
-
-const Building = require('./models/building');
+const database = require('./config/database');
 
 // Webapp
 const app = express();
