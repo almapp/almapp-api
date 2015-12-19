@@ -4,7 +4,7 @@
   "description": "Almapp REST API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --harmony_rest_parameters index.js",
     "develop": "node_modules/nodemon/bin/nodemon.js index.js",
     "test": "mocha test"
   },

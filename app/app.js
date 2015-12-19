@@ -13,6 +13,7 @@ const Building = require('./models/building');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.enable('trust proxy');
 
 // Logs
 app.use(morgan('dev'));
