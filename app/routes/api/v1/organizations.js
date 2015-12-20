@@ -5,12 +5,12 @@ const Organization = require('../../../models/organization');
 const Campus = require('../../../models/campus');
 
 const prepare = require('./helpers/hateoas');
-const param = require('./helpers/id-param');
-const distance = require('./helpers/distance-query');
+const params = require('./helpers/params');
+const search = require('./helpers/search');
 
 const router = module.exports = express.Router();
 
-router.param('id', param(Organization));
+router.param('id', params.identifier(Organization));
 
 router.route('/')
   .get((req, res, next) => {
@@ -20,14 +20,8 @@ router.route('/')
   });
 
 router.route('/search') // search?q=B23&lat=1&lon=2&distance=1km
-  .get((req, res, next) => {
-    const query = distance(req.query);
-
-    if (!query) {
-      return next(new throwjs.badRequest('empty search query'));
-    }
-
-    Organization.search(query)
+  .get(search.middleware, (req, res, next) => {
+    Organization.search(req.search.query)
       .then(results => results.hits.hits)
       .then(resources => res.send(prepare.organizations(req, ...resources)))
       .catch(next);

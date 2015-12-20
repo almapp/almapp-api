@@ -1,6 +1,8 @@
 const throwjs = require('throw.js');
 
-module.exports = function(model) {
+const distance = require('./distance-query');
+
+module.exports.identifier = function(model) {
   return function(req, res, next, id) {
     const query = { $or: [{ identifier: id }] };
     if (id.match(/^[0-9a-fA-F]{24}$/)) query.$or.push({ _id: id });
